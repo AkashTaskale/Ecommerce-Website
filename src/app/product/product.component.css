@@ -1,0 +1,36 @@
+.grid-view{
+    width: 100%;
+    height: 2;
+}
+.search {
+    width: 100%;
+
+}
+.card{
+    width: auto;
+    height: 50%;
+}
+:host {
+    display: block;
+    overflow: hidden;
+    border-radius: 1rem;
+    box-shadow: 0px 0px 0.75rem rgba(0, 0, 0, 0);
+    transition: transform 200ms ease-in-out;
+}
+:host :hover{
+    transform: scale(1.00199);
+}
+img{
+ cursor: pointer;
+ transition: transform 100ms ease-in;
+ border-radius: 1rem;
+
+}
+img:hover{
+    transform: scale(0.50);
+}
+
+.list-view {
+    width: 100%;
+    height: 5%;
+}

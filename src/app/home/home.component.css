@@ -1,0 +1,16 @@
+.my-container{
+    width: 250%;
+}
+.product-baner button{
+    position: absolute;
+    top: 50%;
+    left: 20%;
+
+}
+.product-grid {
+    width: 100%;
+}
+
+.carousel-inner .carousel-item {
+    cursor: pointer;
+}

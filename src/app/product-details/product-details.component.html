@@ -1,0 +1,50 @@
+<div class="my-container mx-auto border border-dark" >
+    <div class="row g-5 mx-auto">
+        <div class="col-4">
+            <div class="d-flex justify-content-center align-items-center">
+            <img src={{ProductData.image}} alt="" class="w-100">
+            </div>
+        </div>
+        <div class="col-8">
+            <div class="card-header">
+                <h2>{{ProductData.title}}</h2>
+            </div>
+            <div class="card-body">
+                <h4 class="card-subtitle text-danger">₹ {{ProductData.price}}</h4>
+                <h6 class="card-subtitle my-2 text-primary">{{ProductData.quantity}} Available</h6>
+
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <button type="button" class="btn btn-outline-success"
+                        (click)="this.utilityService.addToCart(ProductData)">Add to cart</button>
+                </div>
+
+            </div>
+            <div class="card-body">
+                <h5 class="card-text">{{ProductData.description}}</h5>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="row g-0">
+        <div class="col-12 ps-5 pt-4 pb-3">
+            <h3 class="border border-secondary text-center py-2 my-rounded-corner w-25">Related Products</h3>
+        </div>
+        <div class="col-12">
+            <app-product></app-product>
+        </div>
+    </div>
+
+    <div class="row g-0 my-5">
+        <div class="col p-3">
+            <h3>Give Your Reviews</h3>
+            <h5 class="mt-4">Write Your Reviews</h5>
+            <textarea class="w-75 p-2"></textarea>
+            <div class="d-flex align-items-start">
+                <button class="btn btn-outline-secondary mt-4 me-5" type="button">Save Review</button>
+            </div>
+        </div>
+    </div>
+</div>

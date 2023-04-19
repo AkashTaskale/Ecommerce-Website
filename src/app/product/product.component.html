@@ -1,0 +1,72 @@
+<div class="grid-view" *ngIf="view =='grid'">
+    <div>
+    <app-search  style="padding-bottom: 10%;" class="search" (searchTextChanged)="OnSearchTextEntered($event)"></app-search>
+</div>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col" *ngFor="let product of productList; let i = index;">
+
+            <!-- search -->
+            <div class="search" >
+          <div class="card h-100" *ngIf="searchText === '' || product.title.toLowerCase().includes(searchText)">
+
+        <a routerLink="/product-details/{{product.id}}">
+            <img src={{product.image}} class="card-img-top" alt="...">
+        </a>
+            <div class="card-body">
+              <h5 class="card-title text-center">{{product.title}}</h5>
+              <h6 class="card-subtitle my-2 text-danger text-center"><font color="#008000"> {{product.quantity}} Available</font></h6>
+              <p class="card-text description text-center">{{product.author}}</p>
+              <h6 class="card-subtitle text-danger text-center">₹{{product.price}}</h6> 
+            </div>
+            <div class="card-footer text-center">
+                <button class="btn btn-outline-success text-center" type="button" (click)="this.utilityService.addToCart(product)">Add to cart</button>
+            </div>
+          </div>
+        </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<div class="current-cart-view" *ngIf="view =='currentcartitem'">
+    <div class="card">
+        <div class="row g-0">
+            <div class="col-4 overflow-hidden d-flex justify-content-center align-items-center" >
+                <a routerLink="/product-details/{{product.id}}">
+                <img src={{product.image}} alt="Product image" class="img-fluid mx-auto rounded-start">
+                </a>
+            </div>
+            <div class="col-8">
+                <div class="card-body">
+                    <h5 class="card-title title">{{product.title}}</h5>
+                   
+                    <h6 class="card-subtitle text-danger ">₹{{product.price}}</h6>
+                </div>
+                <div class="card-footer text-muted d-grid gap-2">
+                    <button class="btn btn-outline-danger" type="button" (click)="this.utilityService.removeCartItem">Remove Item</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="previous-cart-view" *ngIf="view =='previouscart'">
+    <div class="card text-center">
+        <div class="overflow-hidden d-flex justify-content-center align-items-center">
+            <a routerLink="/product-details/{{product.id}}">
+            <img src={{product.image}} alt="" class="card-img-top">
+            </a>
+        </div>
+        <div class="card-body">
+            <h5 class="card-title title">{{product.title}}</h5>
+        </div>
+    </div>
+
+</div>
+

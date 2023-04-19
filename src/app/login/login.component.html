@@ -1,0 +1,74 @@
+<section class="h-100 w-100   gradient-form" style="background-color: #d76161;">
+    <div class="container py-5 h-100 w-500">
+        <div class="col-xl-10" style="padding-left: 25%;">
+            <div class="card rounded-3 text-black">
+                <div class="row g-0">
+                    <div class="col ">
+                        <div class="card-body p-md-5 mx-md-4">
+
+                            <!-- <div class="text-center">
+                                    <img src="https://th.bing.com/th/id/OIP.2Vx912Tdq2xw3UQcWrhr4gHaEy?pid=ImgDet&w=193&h=124&c=7&dpr=1.5"
+                                        style="width: 185px;" alt="logo">
+                                    <h4 class="mt-1 mb-5 pb-1"></h4>
+                                </div> -->
+
+                            <form [formGroup]="LoginForm" (ngSubmit)="LoginSubmitted()">
+                                <p>Please login to your account</p>
+
+                                <div class="form-outline mb-4">
+                                    <input type="email" id="email" formControlName="email" class="form-control"
+                                        placeholder="Email" />
+                                    <div class="form-text text-danger"
+                                        *ngIf="Email.errors?.['required'] && (Email.dirty || Email.touched)">
+                                        Email Required
+                                    </div>
+                                    <div class="form-text text-danger"
+                                        *ngIf="Email.errors?.['email'] && (Email.dirty || Email.touched)">
+                                        Email is Invalid
+                                    </div>
+                                </div>
+
+                                <div class="form-outline mb-4">
+                                    <input type="password" id="pwd" formControlName="pwd" class="form-control"
+                                        placeholder="Password" />
+                                    <div class="form-text text-danger"
+                                        *ngIf="PWD.errors?.['required'] && (PWD.dirty || PWD.touched)">
+                                        Password Required
+                                    </div>
+                                    <div class="form-text text-danger"
+                                        *ngIf="PWD.errors?.['minlength'] || PWD.errors?.['maxlength'] && (PWD.dirty || PWD.touched)">
+                                        Password Should be atlest 6 characters and max 15 characters
+                                    </div>
+                                </div>
+
+                                <div class="text-center pt-1 mb-5 pb-1">
+                                    <button class="login-button" style="width: 150px;" [disabled]="LoginForm.invalid"
+                                        type="submit">Login</button>
+                                    <!-- <p> <a class="text-muted" href="#!">Forgot password?</a></p>-->
+                                </div>
+
+                                <div class="d-flex align-items-center justify-content-center ">
+                                    <p class="">Don't have an account?</p>
+                                    <button type="button" class="btn btn-outline-danger" (click)="CreateNew()"
+                                        value="Next">Create new</button>
+                                </div>
+
+                            </form>
+
+                        </div>
+                    </div>
+                    <div class="col ">
+                        <img src="https://lh3.googleusercontent.com/yE6IlXacELiKacwLO4FYaMPJIs8MLymv3WlnmDkMmZZRDJUpxQ2Ul5J8ShCMAsCb_CNPT2PlqekSf1PoImJ_P1ebU9PqlprHqsliCA-c"
+                            alt="">
+                    </div>
+                    <!-- <div class="col-lg-6 d-flex align-items-center gradient-custom-2">
+                            <div class="text-white px-20 py-8 p-md-8 mx-md-4">
+                                <img src="https://th.bing.com/th/id/OIP.EXGtldhIZPvSqbMMNOAPGgHaFE?w=281&h=192&c=7&r=0&o=5&dpr=1.5&pid=1.7">
+                            </div>
+                        </div>-->
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>

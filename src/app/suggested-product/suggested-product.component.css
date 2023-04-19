@@ -1,0 +1,11 @@
+:host{
+    display: block;
+    width: 100%;
+}
+.suggested {
+    width: 1200px;
+    height: 5%;
+}
+.container {
+    margin-bottom: 5em;
+}

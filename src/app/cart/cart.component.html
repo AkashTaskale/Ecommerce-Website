@@ -1,0 +1,69 @@
+<div class="my-container w-50 mx-auto border border-dark">
+
+ 
+    <div class="p-4 border my-rounded-corner">
+        <!-- CART ITEMS -->
+        <h4 style="text-align: center">Cart Items</h4>
+        <div class="row mt-4 g-0">
+            <div class="col-6 py-3 px-2" *ngFor="let CartItem of usersCart.cartItems">
+                <app-product [view]='"currentcartitem"' [product]="CartItem.productDetail"></app-product>
+            </div>
+
+           <!-- CART DETAILS -->
+            <div>
+                <h3 class="w-25 border text-center justify-content-center mx-auto py-2 my-rounded-corner">Current Cart</h3>
+            </div>
+                <div class="mt-5">
+                <table class="table w-50 mx-auto table-bordered table-hover  my-shadow">
+                    <tr>
+                        <td>Total Items</td>
+                        <td class="fs-5 fw-bold text-danger">{{usersCart.cartItems.length}}</td>
+                    </tr>
+                    <tr>
+                        <td>Total Amount</td>
+                        <td class="fs-5 fw-bold text-danger">{{usersPaymentInfo.totalAmount}}</td>
+                    </tr>
+                    <tr>
+                        <td>Shipping Charges <a  *ngIf="shippingCharges()">{{displayMsg}}</a></td>
+                        <td class="fs-5 fw-bold text-danger">{{usersPaymentInfo.shippingCharges}}</td>
+                    </tr>
+                    <!-- <tr>
+                        <td>Discount</td>
+                        <td class="fs-5 fw-bold text-success">100</td>
+                    </tr> -->
+                    <tr>
+                        <td>You have to pay</td>
+                        <td class="fs-5 fw-bold text-success">{{usersPaymentInfo.amountPaid}}</td>
+                    </tr>
+                </table>
+                <div class="d-grid w-50 mx-auto mb-3">
+                    <button type="button" class="btn btn-outline-success fs-4" routerLink="/order">Buy Now
+                    </button>
+                </div>
+            </div>
+
+
+            
+            <!-- PREVIOUS ORDERS     -->                
+            <h3 class="w-45  text-center" style="padding-left: 2%;">Previous Carts</h3>
+
+            <div class="mt-15 w-100 p-10 border my-rounded-corner">
+                <div class="card mb-5" *ngFor="let cart of usersPreviousCarts">
+                    <div class="card-header d-flex fw-bold justify-content-between align-items-center">
+                        <span class="time">Ordered On : <span class="fs-5">{{cart.orderedOn |
+                                date:"dd-MMM-YYYY"}}</span></span>
+                        <span class="count">Items: {{cart.cartItems.length}}</span>
+                        <!-- <span class="price">Price Paid : <span class="fs-5">{{usersPaymentInfo.amountPaid}}</span>
+                        </span> -->
+                    </div>
+                    <div class="card-body px-4 py-2">
+                        <div class="row g-0">
+                            <div class="col-2 px-2 py-2" *ngFor="let cartItem of cart.cartItems">
+                                <app-product view="previouscart" [product]="cartItem.productDetail"></app-product>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

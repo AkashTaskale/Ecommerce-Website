@@ -1,0 +1,101 @@
+<div class="card">
+    <div class="title">Purchase Reciept</div>
+    <div class="info">
+        <div class="row">
+            <div class="col-7">
+                <span id="heading">Date</span><br>
+                <span id="details">6 Apirl 2022</span>
+            </div>
+        </div>      
+    </div>      
+    <div class="pricing">
+        <div class="row">
+            <div class="col-9">
+                <span id="name">Total Items</span>  
+            </div>
+            <div class="col-3">
+                <span id="price">{{UsersCart.cartItems.length}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <span id="name">Total Amount</span>
+            </div>
+            <div class="col-3">
+                <span id="price">₹{{usersPaymentInfo.totalAmount}}</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-9">
+                <span id="name">Shipping Charges</span>
+            </div>
+            <div class="col-3">
+                <span id="price">₹{{usersPaymentInfo.shippingCharges}}</span>
+            </div>
+        </div>
+
+    </div>
+    <div class="total">
+        <div class="row">
+            <div class="col-9"></div>
+            <div class="col-3">₹{{usersPaymentInfo.amountPaid}}</div>
+        </div>
+    </div>
+    <div class="tracking">
+        <div class="title">Payment Method</div>
+        <div>
+        <h6 class="pricing">Select any Method 
+            <select class="pricing" style="padding-left: 30%;" [formControl]="SelectedPaymentMethod">
+                <option value="0">Open this select menu</option>
+                <option *ngFor="let paymentMethod of PaymentMethods" value="{{paymentMethod.id}}">
+                    {{paymentMethod.type}}
+                    <span *ngIf="paymentMethod.provider != ''">{{" - "+paymentMethod.provider}}</span>
+                </option>
+            </select>
+        </h6>
+
+    </div>
+    </div>
+    <div>
+        <h4 class="pricing">Proceed to Payments</h4>
+        <div class="" *ngIf="SelectedPaymentMethodName !== ''">
+            <table class="table table-bordered my-shadow" style="width: 50%;height: 50%;font-size: larger ; align-items: center;padding-left: 500px;">
+                <tr>
+                    <td>You have to Pay</td>
+                    <td>{{usersPaymentInfo.amountPaid}}</td>
+                </tr>
+                <tr>
+                    <td>Payment Method</td>
+                    <td>{{this.GetPaymentMethod(SelectedPaymentMethodName)}}</td>
+                </tr>
+            </table>
+
+            <div class="d-grid w-50">
+                <button type="button" class="btn btn-outline-success mb-4" (click)="PlaceOrder()">
+                    Pay
+                </button>
+    </div>
+    <div class="processing">
+        <div class="spinner-border me-4" role="status" *ngIf="Spinner">
+            <span  class="visually-hidden">Loading......</span>
+        </div>
+        <h6 class="m-0 {{Class}}" style="font-size: larger;">{{Message}}</h6>
+    </div>
+    
+    <div *ngIf="Tracking">
+    <div class="tracking" >
+        <div class="title">Tracking Order</div>
+    </div>
+    <div class="progress-track">
+        <ul id="progressbar">
+            <li class="step0 active " id="step1">Ordered</li>
+            <li class="step0  text-center" id="step2">Shipped</li>
+            <li class="step0  text-right" id="step3">On the way</li>
+            <li class="step0 text-right" id="step4">Delivered</li>
+        </ul>
+    </div>
+    </div>
+    
+
+
+</div>
